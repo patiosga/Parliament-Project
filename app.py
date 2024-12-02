@@ -58,17 +58,16 @@ if __name__ == '__main__':
     with app.app_context():
         db.create_all()
 
-        test_speech = Speeches(
-            member_name="John Doe",
-            sitting_date=datetime.strptime("2023-10-01", "%Y-%m-%d"),
-            political_party="Independent",
-            speech="This is a test speech."
-        )
+        # test_speech = Speeches(
+        #     member_name="John Doe",
+        #     sitting_date=datetime.strptime("2023-10-01", "%Y-%m-%d"),
+        #     political_party="Independent",
+        #     speech="This is a test speech."
+        # )
 
-        # db.session.add(test_speech)
-        # db.session.commit()
+        
 
-        # speech_to_delete = Speeches.query.get(2)
+        # speech_to_delete = Speeches.query.get(4)
         # if speech_to_delete:
         #     db.session.delete(speech_to_delete)
         #     db.session.commit()
