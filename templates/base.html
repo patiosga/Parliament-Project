@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- jinja 2 stuff-->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <!-- Ό,τι βάζω σε διπλά {} υπολογίζεται στο αποτέλεσμα string της συνάρτησης που βάζω μέσα -> url_for είναι του flask -->
+    <!-- {διπλο επι τοις εκατο} για if else statement, for loops -->
+    {% block head %}{% endblock %}
+</head>
+<body>
+    {% block body %}{% endblock %} 
+</body>
+</html>

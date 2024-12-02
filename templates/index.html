@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <h1>Parliament Speeches Search Engine</h1>
+{% endblock %}
+
+{% block body %}
+    <div class="content" style="text-align: center;"></div>
+        
+        <form action="/" method="POST">
+            <label for="search">Search:</label>
+            <input type="text" id="search" name="search">
+            <input type="submit" value="Submit query">
+        </form>
+        
+        {% if speeches|length < 1 %}
+            <h4>No results found</h4>
+        {% else %}
+            <h4>Results returned: {{ speeches|length }}</h4>
+        {% endif %}
+
+        <h2>Related Speeches</h2>
+        
+        <table>
+            <tr>
+                <th>Speaker</th>
+                <th>Date</th>
+                <th>Party</th>
+                <th>Speech</th>
+            </tr>
+            {% for speech in speeches %}
+                <tr>
+                    <td>{{ speech.member_name }}</td>
+                    <td>{{ speech.sitting_date.date() }}</td>
+                    <td>{{ speech.political_party }}</td>
+                    <td>
+                        <a href="/read/{{ speech.id }}">Read Speech</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+
+
+
+
+    </div>
+{% endblock %}
