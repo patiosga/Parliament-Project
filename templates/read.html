@@ -1,12 +1,17 @@
 {% extends 'base.html' %}
 
 {% block head %}
-    <h2>Selected Speech by {{ speech.member_name }}</h2>
+    <div class="container my-4 text-center">
+        <h2 class="display-6">Selected Speech by {{ speech.member_name }}</h2>
+    </div>
 {% endblock %}
 
 {% block body %}   
-    <div class="speech-text" style="font-size: 18px; padding: 20px;">
-        {{ speech.speech | safe }}
+    <div class="container my-4">
+        <!-- Speech Content -->
+        <div class="speech-text p-4 rounded bg-light shadow-sm">
+            <p class="fs-5">{{ speech.speech | safe }}</p>
+        </div>
     </div>
-
 {% endblock %}
+
