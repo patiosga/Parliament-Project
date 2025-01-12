@@ -64,6 +64,9 @@ if __name__ == '__main__':
         #     political_party="Independent",
         #     speech="This is a test speech."
         # )
+        # db.session.add(test_speech)
+        # db.session.commit()
+
 
         
 

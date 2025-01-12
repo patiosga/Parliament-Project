@@ -1,3 +1,7 @@
 *.pyc
 instance/
 venv/
+*.csv
+*.db
+*.pkl
+
