@@ -6,13 +6,17 @@ from scipy.sparse.linalg import svds
 from preprocess_speech import preprocess_speech
 from load_file import load_processed_file
 from LSI import LSI
+from simhash import Simhash
+
+# Function to compute the SimHash for a vector with concept weights
+def compute_weighted_simhash(concept_vector, concept_weights):
+    return Simhash(np.dot(concept_vector, concept_weights).flatten())
 
 
-def all_speeches_of_member(data: pd.DataFrame, member_name: int):
-    '''
-    Get all speeches of a member.
-    '''
-    return data[data['member_name'] == member_name]
+# Compute all the simhashes for the objects
+def all_simhashes(speeches, concept_weights):
+    return [compute_weighted_simhash(speech, concept_weights) for speech in speeches]
+
 
 
 def main():

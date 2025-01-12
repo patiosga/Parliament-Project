@@ -4,4 +4,4 @@ venv/
 *.csv
 *.db
 *.pkl
-
+*.json
