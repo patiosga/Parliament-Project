@@ -63,7 +63,10 @@ def index():
             # Retrieve top-k document IDs
             speech_ids = top_k_query(processed_query_terms, 20)
             # print(speech_ids)
-            speeches = Speeches.query.filter(Speeches.id.in_(speech_ids)).all()
+            # Return the speeches in the same order as the IDs (the ids are in the order of relevance)
+            speeches = db.session.query(Speeches).filter(Speeches.id.in_(speech_ids)).all()
+            speeches_dict = {speech.id: speech for speech in speeches}
+            speeches = [speeches_dict[id] for id in speech_ids if id in speeches_dict]
             return render_template('index.html', speeches=speeches)
         except:
             return 'There was an issue searching the database'
@@ -88,7 +91,6 @@ if __name__ == '__main__':
         load_dataframe_to_db(df)
         print("Data loaded into database.")
     else:
-
 
         with app.app_context():
             db.create_all()
