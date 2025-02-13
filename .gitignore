@@ -6,3 +6,4 @@ venv/
 *.pkl
 *.json
 *.npy
+*.mp4

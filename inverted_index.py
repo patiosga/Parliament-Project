@@ -61,15 +61,15 @@ def save_inverted_index_to_pickle(inverted_index, filename='inverted_index.pkl')
     with open(filename, 'wb') as f:
         pickle.dump(inverted_index, f)
 
+if __name__ == '__main__':
+    # Load your data and LSΑ model
+    processed_data = load_processed_file()  # You can adjust the rows argument as needed
+    lsi_obj = load_lsa_model()
 
-# Load your data and LSΑ model
-processed_data = load_processed_file()  # You can adjust the rows argument as needed
-lsi_obj = load_lsa_model()
+    # Build the inverted index with deduplication
+    inverted_index = build_inverted_index(lsi_obj, processed_data)
 
-# Build the inverted index with deduplication
-inverted_index = build_inverted_index(lsi_obj, processed_data)
+    # Save the inverted index to a CSV file
+    save_inverted_index_to_pickle(inverted_index, filename='inverted_index.csv')
 
-# Save the inverted index to a CSV file
-save_inverted_index_to_pickle(inverted_index, filename='inverted_index.csv')
-
-print("Inverted index saved to 'inverted_index.csv'.")
+    print("Inverted index saved to 'inverted_index.csv'.")
